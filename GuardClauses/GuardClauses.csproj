@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Danijel Bokšan</Authors>
+    <Company />
+    <Description>A simple extensible package with guard clause extensions.</Description>
+    <Copyright>Copyright  (c) Danijel Bokšan 2021</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>
