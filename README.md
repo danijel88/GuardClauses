@@ -22,3 +22,5 @@ GuardClause.IsNullOrWhiteSpace(string argumentValue, string argumentName);
 GuardClause.IsNullOrEmptyString(string argumentValue, string argumentName);
 GuardClause.ArgumentIsNotNull(object value, string argumentName);
 ```
+# Nuget
+https://www.nuget.org/packages/GuardClauses/
