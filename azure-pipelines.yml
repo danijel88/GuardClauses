@@ -38,11 +38,4 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '18e70f82-c68f-41cb-8498-108c91636b3d/e7ec286c-5692-451d-9288-5cedbb520d16'
-    allowPackageConflicts: true
 
