@@ -7,6 +7,8 @@
     <Description>A simple extensible package with guard clause extensions.</Description>
     <Copyright>Copyright  (c) Danijel Bokšan 2021</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
 </Project>

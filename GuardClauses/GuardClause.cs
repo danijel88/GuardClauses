@@ -4,6 +4,58 @@ namespace GuardClauses
 {
     public static class GuardClause
     {
+        public static void IsZero(int argumentValue, string argumentName)
+        {
+            if (argumentValue == 0)
+                throw new ArgumentException($"{argumentName} is zero");
+        }
+
+        public static void IsZero(long argumentValue, string argumentName)
+        {
+            if ( argumentValue == 0)
+                throw new ArgumentException($"{argumentName} is zero");
+        }
+        public static void IsZero(decimal argumentValue, string argumentName)
+        {
+            if (argumentValue == 0)
+                throw new ArgumentException($"{argumentName} is zero");
+        }
+        public static void IsZero(double argumentValue, string argumentName)
+        {
+            if ( argumentValue == 0)
+                throw new ArgumentException($"{argumentName} is zero.");
+        }
+        public static void IsZero(float argumentValue, string argumentName)
+        {
+            if ( argumentValue == 0)
+                throw new ArgumentException($"{argumentName} is zero.");
+        }
+        public static void IsNegative(int argumentValue, string argumentName)
+        {
+            if (argumentValue < 0 )
+                throw new ArgumentException($"{argumentName} is negative number");
+        }
+
+        public static void IsNegative(long argumentValue, string argumentName)
+        {
+            if (argumentValue < 0 )
+                throw new ArgumentException($"{argumentName} is negative number");
+        }
+        public static void IsNegative(decimal argumentValue, string argumentName)
+        {
+            if (argumentValue < 0)
+                throw new ArgumentException($"{argumentName} is negative number");
+        }
+        public static void IsNegative(double argumentValue, string argumentName)
+        {
+            if (argumentValue < 0)
+                throw new ArgumentException($"{argumentName} is negative number");
+        }
+        public static void IsNegative(float argumentValue, string argumentName)
+        {
+            if (argumentValue < 0)
+                throw new ArgumentException($"{argumentName} is 0 or negative number");
+        }
         public static void IsZeroOrNegative(int argumentValue, string argumentName)
         {
             if (argumentValue < 0 || argumentValue == 0)
@@ -60,6 +112,23 @@ namespace GuardClauses
             
             if (ReferenceEquals(value,null))
                 throw new ArgumentNullException($"{argumentName} is null object");
+        }
+
+        public static void DateTimeIsGraterThan(DateTime argumentValue, string argumentName ,DateTime comparableDateTme)
+        {
+            if (argumentValue > comparableDateTme)
+                throw new ArgumentException($"{nameof(argumentName)}{argumentValue} is greater than {comparableDateTme}");
+        }
+
+        public static void DateTimeIsLessThan(DateTime argumentValue, string argumentName ,DateTime comparableDateTme)
+        {
+            if (argumentValue < comparableDateTme)
+                throw new ArgumentException($"{nameof(argumentName)}{argumentValue} is less than {comparableDateTme}");
+        }
+        public static void DateTimeIsOutOfRange(DateTime argumentValue,DateTime startDateTime, string argumentName ,DateTime endDateTime)
+        {
+            if (argumentValue < startDateTime || argumentValue > endDateTime)
+                throw new ArgumentException($"{nameof(argumentName)} is out of range");
         }
     }
 }
