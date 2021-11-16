@@ -3,13 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Danijel Bokšan</Authors>
-    <Company />
     <Description>A simple extensible package with guard clause extensions.</Description>
     <Copyright>Copyright  (c) Danijel Bokšan 2021</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <FileVersion>1.1.0</FileVersion>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <License>MIT</License>
+    <RepositoryUrl>https://github.com/danijel88/GuardClauses</RepositoryUrl>
+    <PackageTags>dotnet guard-clauses guard-clause dotnet-core clean-code</PackageTags>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.2.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGet.CommandLine" Version="5.11.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>
