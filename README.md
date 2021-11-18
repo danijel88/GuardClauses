@@ -21,6 +21,21 @@ GuardClause.IsNullOrEmptyStringOrWhiteSpace(string argumentValue, string argumen
 GuardClause.IsNullOrWhiteSpace(string argumentValue, string argumentName);
 GuardClause.IsNullOrEmptyString(string argumentValue, string argumentName);
 GuardClause.ArgumentIsNotNull(object value, string argumentName);
+GuardClause.IsZero(int argumentValue, string argumentName);
+GuardClause.IsZero(long argumentValue, string argumentName);
+GuardClause.IsZero(long argumentValue, string argumentName);
+GuardClause.IsZero(decimal argumentValue, string argumentName);
+GuardClause.IsZero(double argumentValue, string argumentName);
+GuardClause.IsZero(float argumentValue, string argumentName);
+GuardClause.IsNegative(int argumentValue, string argumentName);
+GuardClause.IsNegative(long argumentValue, string argumentName);
+GuardClause.IsNegative(long argumentValue, string argumentName);
+GuardClause.IsNegative(decimal argumentValue, string argumentName);
+GuardClause.IsNegative(double argumentValue, string argumentName);
+GuardClause.IsNegative(float argumentValue, string argumentName);
+GuardClause.DateTimeIsGraterThan(DateTime argumentValue, string argumentName ,DateTime comparableDateTme);
+GuardClause.DateTimeIsLessThan(DateTime argumentValue, string argumentName ,DateTime comparableDateTme);
+GuardClause.DateTimeIsOutOfRange(DateTime argumentValue,DateTime startDateTime, string argumentName ,DateTime endDateTime);
 ```
 # Nuget
 https://www.nuget.org/packages/GuardClauses/
