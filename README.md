@@ -1,5 +1,8 @@
 # GuardClauses
 GuardClause is a check of integrity preconditions used to avoid errors during execution
+# Get a star
+If you like the library, please give a star.
+
 # Usage
 ```c#
 public void Execution(string name, int age)
