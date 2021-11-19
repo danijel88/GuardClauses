@@ -39,6 +39,8 @@ GuardClause.IsNegative(float argumentValue, string argumentName);
 GuardClause.DateTimeIsGraterThan(DateTime argumentValue, string argumentName ,DateTime comparableDateTme);
 GuardClause.DateTimeIsLessThan(DateTime argumentValue, string argumentName ,DateTime comparableDateTme);
 GuardClause.DateTimeIsOutOfRange(DateTime argumentValue,DateTime startDateTime, string argumentName ,DateTime endDateTime);
+GuardClause.IsStringEmptyGuid(string argumentValue, string argumentName);
+GuardClause.IsEmptyGuid(Guid argumentValue, string argumentName);
 ```
 # Nuget
 https://www.nuget.org/packages/GuardClauses/
