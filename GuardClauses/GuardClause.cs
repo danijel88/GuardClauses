@@ -130,5 +130,16 @@ namespace GuardClauses
             if (argumentValue < startDateTime || argumentValue > endDateTime)
                 throw new ArgumentException($"{nameof(argumentName)} is out of range");
         }
+
+        public static void IsStringEmptyGuid(string argumentValue, string argumentName)
+        {
+            if (argumentValue == Guid.Empty.ToString())
+                throw new ArgumentException($"{nameof(argumentName)} can not be string with value of empty guid.");
+        }
+        public static void IsEmptyGuid(Guid argumentValue, string argumentName)
+        {
+            if (argumentValue == Guid.Empty)
+                throw new ArgumentException($"{nameof(argumentName)} can not be string with value of empty guid.");
+        }
     }
 }

@@ -343,6 +343,36 @@ namespace GuardClausesTests
             GuardClause.DateTimeIsOutOfRange(argumentValue,startDate,nameof(argumentValue),endDate);
         }
 
+        [Fact]
+        public static void IsStringEmptyGuid_WithEmptyGuidString_ThrowsArgumentException()
+        {
+            var value = Guid.Empty.ToString();
+            Action action = () => GuardClause.IsStringEmptyGuid(value, nameof(value));
+            Assert.Throws<ArgumentException>(action);
+        }
+
+        [Fact]
+        public static void IsStringEmptyGuid()
+        {
+            var value = Guid.NewGuid().ToString();
+            GuardClause.IsStringEmptyGuid(value, nameof(value));
+        }
+
+        [Fact]
+        public static void IsSEmptyGuid_WithEmptyGuid_ThrowsArgumentException()
+        {
+            var value = Guid.Empty;
+            Action action = () => GuardClause.IsEmptyGuid(value, nameof(value));
+            Assert.Throws<ArgumentException>(action);
+        }
+
+        [Fact]
+        public static void IsEmptyGuid()
+        {
+            var value = Guid.NewGuid();
+            GuardClause.IsEmptyGuid(value, nameof(value));
+        }
+
 
         #region MemberDataHelper
 
