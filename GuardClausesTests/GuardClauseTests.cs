@@ -373,6 +373,51 @@ namespace GuardClausesTests
             GuardClause.IsEmptyGuid(value, nameof(value));
         }
 
+        [Theory]
+        [InlineData("testgmail.com")]
+        [InlineData("test@gmail")]
+        [InlineData("test.uk")]
+        [InlineData("test")]
+        public static void IsEmailValid_NotValidEmail_ThrowsArgumentException(string email)
+        {
+            Action action = () => GuardClause.IsEmailValid(email);
+            Assert.Throws<ArgumentException>(action);
+        }
+        [Theory]
+        [InlineData("test@gmail.com")]
+        [InlineData("test@gmail.uk")]
+        [InlineData("test@company.co.rs")]
+        public static void IsEmailValid(string email)
+        {
+            GuardClause.IsEmailValid(email);
+        }
+
+        [Theory]
+        [InlineData("https://www.domain")]
+        [InlineData("www.domain")]
+        [InlineData("domain")]
+        [InlineData("https://w.domain.com")]
+        public static void UrlChecker_NotValidUrl_ThrowsArgumentException(string url)
+        {
+            Action action = () => GuardClause.UrlChecker(url);
+            Assert.Throws<ArgumentException>(action);
+        }
+        [Theory]
+        [InlineData("https://www.google.com")]
+        [InlineData("www.google.com")]
+        [InlineData("facebook.com")]
+        [InlineData("https://rs.n1info.com/")]
+        [InlineData("ftp://rs1.domain.com")]
+        [InlineData("sftp://rs1.domain.com")]
+        [InlineData("sftp://rs1.domain.com:1444")]
+        [InlineData("rs1.domain.com:1444")]
+        [InlineData("rs1.domain.com:1444/Controller/Edit/1")]
+        [InlineData("rs1.domain.com:1444/Controller/1/Create")]
+        public static void UrlChecker_ValidUrl(string url)
+        {
+            GuardClause.UrlChecker(url);
+        }
+
 
         #region MemberDataHelper
 

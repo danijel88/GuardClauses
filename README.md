@@ -41,6 +41,8 @@ GuardClause.DateTimeIsLessThan(DateTime argumentValue, string argumentName ,Date
 GuardClause.DateTimeIsOutOfRange(DateTime argumentValue,DateTime startDateTime, string argumentName ,DateTime endDateTime);
 GuardClause.IsStringEmptyGuid(string argumentValue, string argumentName);
 GuardClause.IsEmptyGuid(Guid argumentValue, string argumentName);
+GuardClause.IsEmailValid(string email);
+GuardClause.UrlChecker(string url);
 ```
 # Nuget
 https://www.nuget.org/packages/GuardClauses/
