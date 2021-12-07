@@ -417,6 +417,21 @@ namespace GuardClausesTests
         {
             GuardClause.UrlChecker(url);
         }
+        [Theory]
+        [InlineData("First Name",7)]
+        [InlineData("First Name",4)]
+        public static void MaximumLength_ExceedStringLength_ThrowsArgumentException(string name,int stringMaximumLength)
+        {
+            Action action = () => GuardClause.MaximumLength(name,nameof(name),stringMaximumLength);
+            Assert.Throws<ArgumentException>(action);
+        }
+        [Theory]
+        [InlineData("First Name",15)]
+        [InlineData("First Name",10)]
+        public static void MaximumLength_NotExceedStringLength(string name,int stringMaximumLength)
+        {
+            GuardClause.MaximumLength(name,nameof(name),stringMaximumLength);
+        }
 
 
         #region MemberDataHelper

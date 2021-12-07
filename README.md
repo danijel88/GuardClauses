@@ -43,6 +43,7 @@ GuardClause.IsStringEmptyGuid(string argumentValue, string argumentName);
 GuardClause.IsEmptyGuid(Guid argumentValue, string argumentName);
 GuardClause.IsEmailValid(string email);
 GuardClause.UrlChecker(string url);
+GuardClause.MaximumLength(string argumentValue, string argumentName, int maximumLength);
 ```
 # Nuget
 https://www.nuget.org/packages/GuardClauses/

@@ -177,8 +177,11 @@ namespace GuardClauses
             var regex = new Regex(VALID_URL_PATTERN);
             if (!regex.IsMatch(url))
                 throw new ArgumentException($"{url} is not valid");
-
-
+        }
+        public static void MaximumLength(string argumentValue, string argumentName, int maximumLength)
+        {
+            if (argumentValue.Length > maximumLength)
+                throw new ArgumentException($"Argument {argumentName} exceed maximum length {maximumLength}");
         }
 
     }
