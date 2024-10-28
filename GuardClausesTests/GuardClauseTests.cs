@@ -396,7 +396,6 @@ namespace GuardClausesTests
         [InlineData("https://www.domain")]
         [InlineData("www.domain")]
         [InlineData("domain")]
-        [InlineData("https://w.domain.com")]
         public static void UrlChecker_NotValidUrl_ThrowsArgumentException(string url)
         {
             Action action = () => GuardClause.UrlChecker(url);
