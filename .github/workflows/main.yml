@@ -1,0 +1,28 @@
+
+name: Publish to Nuget
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+          dotnet-version: '8.x'
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish GuardClauses to NuGet
+      run: |
+        rm -rf nuget/
+        dotnet pack --no-build GuardClauses/GuardClauses.csproj --configuration Release --output nuget
+        dotnet nuget push nuget/*.nupkg -k '${{ secrets.NUGET_API_KEY }}' --skip-duplicate -s https://api.nuget.org/v3/index.json
