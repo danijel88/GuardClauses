@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GuardClauses;
+using GuardClauses.Enums;
 using Xunit;
 using static System.Decimal;
 
@@ -97,7 +98,10 @@ namespace GuardClausesTests
         [MemberData(nameof(NullEmptyStrings))]
         public void IsNullOrEmptyStringOrWhiteSpace_WithNullEmptyAndWhiteSpace_ThrowsArgumentException(string value)
         {
-            Action action = () => GuardClause.IsNullOrEmptyStringOrWhiteSpace(value, nameof(value));
+            Action action = () => GuardClause.EnsureValidString(value, nameof(value),new List<StringValidationType>
+                {
+                    StringValidationType.IsNullOrEmpty, StringValidationType.IsNullOrWhiteSpace
+                });
             Assert.Throws<ArgumentException>(action);
         }
 
@@ -105,7 +109,10 @@ namespace GuardClausesTests
         [MemberData(nameof(NullEmptyStrings))]
         public void IsNullOrEmptyString_WithNullEmptyAndWhiteSpace_ThrowsArgumentException(string value)
         {
-            Action action = () => GuardClause.IsNullOrEmptyString(value, nameof(value));
+            Action action = () => GuardClause.EnsureValidString(value, nameof(value), new List<StringValidationType>
+            {
+                StringValidationType.IsNullOrEmpty, StringValidationType.IsNullOrWhiteSpace
+            });
             Assert.Throws<ArgumentException>(action);
         }
 
@@ -113,14 +120,17 @@ namespace GuardClausesTests
         [MemberData(nameof(Strings))]
         public void IsNullOrEmptyStringOrWhiteSpace_WithNotNullOrEmptyString(string value)
         {
-            GuardClause.IsNullOrEmptyStringOrWhiteSpace(value, nameof(value));
+            GuardClause.EnsureValidString(value, nameof(value), new List<StringValidationType>
+            {
+                StringValidationType.IsNullOrEmpty, StringValidationType.IsNullOrWhiteSpace
+            });
         }
 
         [Theory]
         [MemberData(nameof(Strings))]
         public void IsNullOrEmptyString_WithNotNullOrEmptyString(string value)
         {
-            GuardClause.IsNullOrEmptyString(value, nameof(value));
+            GuardClause.EnsureValidString(value, nameof(value),StringValidationType.IsNullOrEmpty);
         }
 
         [Theory]
