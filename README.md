@@ -7,8 +7,8 @@ If you like the library, please give a star.
 ```c#
 public void Execution(string name, int age)
 {
-  GuardClause.IsZeroOrNegative(age,nameof(age));
-  GuardClause.IsNullOrEmptyStringOrWhiteSpace(name, nameof(name));
+  Name =  GuardClause.IsZeroOrNegative(age,nameof(age));
+  Age  =  GuardClause.IsNullOrEmptyStringOrWhiteSpace(name, nameof(name));
 }
 ```
 
@@ -21,7 +21,8 @@ GuardClause.IsZeroOrNegative(long argumentValue, string argumentName);
 GuardClause.IsZeroOrNegative(double argumentValue, string argumentName);
 GuardClause.IsLengthExceeded(string argumentValue, string agrumentName, int maximumLength);
 GuardClause.IsNullOrEmptyStringOrWhiteSpace(string argumentValue, string argumentName);
-GuardClause.IsNullOrWhiteSpace(string argumentValue, string argumentName);
+GuardClauseEnsureValidString(string argumentValue, string argumentName,List<StringValidationType> types);
+GuardClauseEnsureValidString(string argumentValue, string argumentName,StringValidationType type);
 GuardClause.IsNullOrEmptyString(string argumentValue, string argumentName);
 GuardClause.ArgumentIsNotNull(object value, string argumentName);
 GuardClause.IsZero(int argumentValue, string argumentName);
