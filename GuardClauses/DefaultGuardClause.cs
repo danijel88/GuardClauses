@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using GuardClauses.Enums;
+using GuardClauses.Interfaces;
 
 namespace GuardClauses
 {
+    /// <inheritdoc />
     public class DefaultGuardClause : IGuardClause
     {
+        /// <inheritdoc />
         public T IsZero<T>(T argumentValue, string argumentName) where T : struct, IComparable
         {
             if (argumentValue.CompareTo(default(T)) == 0)
@@ -14,6 +17,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public T IsNegative<T>(T argumentValue, string argumentName) where T : struct, IComparable
         {
             if (argumentValue.CompareTo(default(T)) < 0)
@@ -21,6 +25,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public T IsZeroOrNegative<T>(T argumentValue, string argumentName) where T : struct, IComparable
         {
             if (argumentValue.CompareTo(default(T)) <= 0)
@@ -28,6 +33,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public string IsLengthExceeded(string argumentValue, string argumentName, int maximumLength)
         {
             if (argumentValue.Length > maximumLength)
@@ -35,6 +41,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public string EnsureValidString(string argumentValue, string argumentName, List<StringValidationType> types)
         {
             foreach (var type in types)
@@ -50,6 +57,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public string EnsureValidString(string argumentValue, string argumentName, StringValidationType type)
         {
             var isInvalid = type switch
@@ -61,30 +69,35 @@ namespace GuardClauses
             if (isInvalid) throw new ArgumentException($"String is {type}", nameof(argumentName));
             return argumentValue;
         }
+
+        /// <inheritdoc />
         [Obsolete]
-        public  string IsNullOrEmptyStringOrWhiteSpace(string argumentValue, string argumentName)
+        public string IsNullOrEmptyStringOrWhiteSpace(string argumentValue, string argumentName)
         {
             IsNullOrWhiteSpace(argumentValue, nameof(argumentName));
             IsNullOrEmptyString(argumentValue, nameof(argumentName));
             return argumentValue;
         }
 
+        /// <inheritdoc />
         [Obsolete]
-        public  string IsNullOrWhiteSpace(string argumentValue, string argumentName)
+        public string IsNullOrWhiteSpace(string argumentValue, string argumentName)
         {
             if (string.IsNullOrWhiteSpace(argumentValue))
                 throw new ArgumentException($"{argumentName} is null or white space");
             return argumentValue;
         }
 
+        /// <inheritdoc />
         [Obsolete]
-        public  string IsNullOrEmptyString(string argumentValue, string argumentName)
+        public string IsNullOrEmptyString(string argumentValue, string argumentName)
         {
             if (string.IsNullOrEmpty(argumentValue))
                 throw new ArgumentException($"{argumentName} is null or empty string");
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public object ArgumentIsNotNull(object value, string argumentName)
         {
             if (ReferenceEquals(value, null))
@@ -92,6 +105,7 @@ namespace GuardClauses
             return value;
         }
 
+        /// <inheritdoc />
         public DateTime DateTimeIsGreaterThan(DateTime argumentValue, string argumentName, DateTime comparableDateTime)
         {
             if (argumentValue > comparableDateTime)
@@ -99,6 +113,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public DateTime DateTimeIsLessThan(DateTime argumentValue, string argumentName, DateTime comparableDateTime)
         {
             if (argumentValue < comparableDateTime)
@@ -106,6 +121,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public DateTime DateTimeIsOutOfRange(DateTime argumentValue, DateTime startDateTime, string argumentName, DateTime endDateTime)
         {
             if (argumentValue < startDateTime || argumentValue > endDateTime)
@@ -113,6 +129,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public string IsStringEmptyGuid(string argumentValue, string argumentName)
         {
             if (argumentValue == Guid.Empty.ToString())
@@ -120,6 +137,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public Guid IsEmptyGuid(Guid argumentValue, string argumentName)
         {
             if (argumentValue == Guid.Empty)
@@ -127,6 +145,7 @@ namespace GuardClauses
             return argumentValue;
         }
 
+        /// <inheritdoc />
         public string IsEmailValid(string email)
         {
             var regex = new Regex(DataPatternConst.VALID_EMAIL_ADDRESS_PATTERN, RegexOptions.IgnoreCase);
@@ -135,6 +154,7 @@ namespace GuardClauses
             return email;
         }
 
+        /// <inheritdoc />
         public string UrlChecker(string url)
         {
             var regex = new Regex(DataPatternConst.VALID_URL_PATTERN);
@@ -143,6 +163,7 @@ namespace GuardClauses
             return url;
         }
 
+        /// <inheritdoc />
         public string MaximumLength(string argumentValue, string argumentName, int maximumLength)
         {
             if (argumentValue.Length > maximumLength)
