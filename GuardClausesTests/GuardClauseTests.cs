@@ -317,14 +317,14 @@ namespace GuardClausesTests
         [InlineData("2021-01-25","2020-05-20")]
         public static void DateTimeIsGraterThan_WithGraterDate_ThrowsArgumentException(DateTime firstDate, DateTime secondDate)
         {
-            Action action = () => GuardClause.DateTimeIsGraterThan(firstDate, nameof(firstDate),secondDate);
+            Action action = () => GuardClause.DateTimeIsGreaterThan(firstDate, nameof(firstDate),secondDate);
             Assert.Throws<ArgumentException>(action);
         }
         [Theory]
         [InlineData("2020-01-25","2020-05-20")]
         public static void DateTimeIsGraterThan(DateTime firstDate, DateTime secondDate)
         {
-            GuardClause.DateTimeIsGraterThan(firstDate, nameof(firstDate),secondDate);
+            GuardClause.DateTimeIsGreaterThan(firstDate, nameof(firstDate),secondDate);
         }
         [Theory]
         [InlineData("2020-01-25","2020-05-20")]
